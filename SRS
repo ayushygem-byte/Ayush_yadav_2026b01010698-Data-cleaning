@@ -1,0 +1,18 @@
+Project Summary (SRS) — Titanic Data Cleaning Script
+What it does:
+This Python script takes the raw Titanic passenger CSV file, cleans up messy and missing data, creates a few useful new columns for analysis, and saves the cleaned version to a new CSV file.
+Key Steps (Requirements):
+Load the file: Reads the raw Titanic-Dataset.csv file using pandas.
+Clean text & duplicates: Removes duplicate rows and trims extra spaces from text columns.
+Extract Titles: Pulls titles (like Mr, Mrs, Miss) out of the Name column and groups rare titles into simple labels (Royal, Officer, Other).
+Fill missing values:
+Embarked: Fills blank values with the most common port (S).
+Age: Fills blank ages using the average (median) age of passengers with the same gender and ticket class.
+Deck: Takes the first letter of Cabin as the deck, and labels missing ones as "Unknown".
+Create new features:
+FamilySize: Total family members aboard (SibSp + Parch + 1).
+IsAlone: 1 if traveling alone, 0 if with family.
+Sex_encoded: Converts male to 0 and female to 1.
+Format & Save: Sets category data types for cleaner analysis, saves the final table to Titanic-Dataset-Cleaned.csv, and prints a quick check of missing values and row/column counts.
+One small note:
+In the function definition, the default file path is missing the C (":\\Users..."), though it works fine when run directly because __main__ passes the full C:\Users... path.
